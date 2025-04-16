@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <link rel="stylesheet" href="./style.css" />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Migajvi Tavze</title>
+  </head>
+  <body>
+    <div class="text"><h1>დავაი წულპან დააბზრიალე</h1></div>
+
+    <body onclick="launchFirework(event) " class="body">
+      <a
+        id="myBtn"
+        onclick="delayedLink()"
+        href="https://media.tenor.com/UrIakXGExfUAAAAM/mr-bean.gif"
+      >
+        <p id="countdown"></p>
+        <button>i want that game</button>
+      </a>
+      <div class="container">
+        <div class="spinBtn">spin</div>
+        <div class="wheel">
+          <div class="number" style="--i: 1; --clr: #db6041">
+            <span>CS:GO</span>
+          </div>
+          <div class="number" style="--i: 2; --clr: #db0013">
+            <span>LOL</span>
+          </div>
+          <div class="number" style="--i: 3; --clr: #db8023">
+            <span>RDR2</span>
+          </div>
+          <div class="number" style="--i: 4; --clr: #db1093">
+            <span>BTF1</span>
+          </div>
+          <div class="number" style="--i: 5; --clr: #db0163">
+            <span>MC</span>
+          </div>
+          <div class="number" style="--i: 6; --clr: #db4213">
+            <span>VSS</span>
+          </div>
+          <div class="number" style="--i: 7; --clr: #db7003">
+            <span>LOL</span>
+          </div>
+          <div class="number" style="--i: 8; --clr: #db9093">
+            <span>CS:GO</span>
+          </div>
+          <div class="number" style="--i: 9; --clr: #db8150">
+            <span>BTF1</span>
+          </div>
+        </div>
+      </div>
+      <div class="cloud">
+        <p class="shadow">ჰა დაკა მაგ დედამოტყნულს!!!!!!!!!!</p>
+        <img src="./gialo.jpeg" alt="gialo" />
+      </div>
+
+      <script>
+        let wheel = document.querySelector(".wheel");
+        let spinBtn = document.querySelector(".spinBtn");
+        let value = Math.ceil(Math.random() * 3600);
+
+        spinBtn.onclick = function () {
+          wheel.style.transform = "rotate(" + value + "deg)";
+          value += Math.ceil(Math.random() * 3600);
+        };
+      </script>
+      <script>
+        function launchFirework(e) {
+          const firework = document.createElement("div");
+          firework.classList.add("firework");
+
+          // Position firework at click location
+          const x = e.clientX;
+          const y = e.clientY;
+          firework.style.left = x + "px";
+          firework.style.top = y + "px";
+
+          // Add 20 particles
+          for (let i = 0; i < 20; i++) {
+            const particle = document.createElement("span");
+            particle.classList.add("particle");
+
+            const angle = Math.random() * 2 * Math.PI;
+            const radius = 80 + Math.random() * 40;
+            const dx = Math.cos(angle) * radius + "px";
+            const dy = Math.sin(angle) * radius + "px";
+            const hue = Math.floor(Math.random() * 360);
+
+            particle.style.setProperty("--x", dx);
+            particle.style.setProperty("--y", dy);
+            particle.style.setProperty("--hue", hue);
+
+            firework.appendChild(particle);
+          }
+
+          document.body.appendChild(firework);
+
+          // Remove firework after animation
+          setTimeout(() => {
+            firework.remove();
+          }, 1000);
+        }
+      </script>
+      <script>
+        function delayedLink() {
+          const btn = document.getElementById("myBtn");
+          const countdown = document.getElementById("countdown");
+          let timeLeft = 10;
+
+          btn.disabled = true;
+          countdown.innerText = `Redirecting in ${timeLeft} seconds...`;
+
+          const timer = setInterval(() => {
+            timeLeft--;
+            countdown.innerText = `Redirecting in ${timeLeft} seconds...`;
+            if (timeLeft <= 0) {
+              clearInterval(timer);
+              window.location.href =
+                "https://media.tenor.com/UrIakXGExfUAAAAM/mr-bean.gif";
+            }
+          }, 1000);
+        }
+      </script>
+    </body>
+  </body>
+</html>
