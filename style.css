@@ -154,6 +154,7 @@ img {
 
 .cloud {
   position: absolute;
+  margin-top: -70px;
   top: var(--top, 50px);
   left: -200px;
   width: 50px;

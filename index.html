@@ -102,26 +102,6 @@
           }, 1000);
         }
       </script>
-      <script>
-        function delayedLink() {
-          const btn = document.getElementById("myBtn");
-          const countdown = document.getElementById("countdown");
-          let timeLeft = 10;
-
-          btn.disabled = true;
-          countdown.innerText = `Redirecting in ${timeLeft} seconds...`;
-
-          const timer = setInterval(() => {
-            timeLeft--;
-            countdown.innerText = `Redirecting in ${timeLeft} seconds...`;
-            if (timeLeft <= 0) {
-              clearInterval(timer);
-              window.location.href =
-                "https://media.tenor.com/UrIakXGExfUAAAAM/mr-bean.gif";
-            }
-          }, 1000);
-        }
-      </script>
     </body>
   </body>
 </html>
